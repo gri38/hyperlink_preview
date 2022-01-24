@@ -1,0 +1,29 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.ignorePatterns": [
+        "LICENSE",
+        "pyproject.toml",
+        "**/__init__.py",
+        "tests/*"
+    ],
+    "cSpell.language": "fr,fr-FR,en",
+    "cSpell.ignorePaths": [
+        "pyproject.toml",
+        "setup.cfg",
+        "LICENSE",
+        ".vscode"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "*_test.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "cSpell.words": [
+        "metas"
+    ],
+}
