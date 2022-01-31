@@ -13,7 +13,8 @@ venv\Scripts\activate.bat
 pip install hyperlink_preview
 python -m hyperlink_preview.demo_html https://en.wikipedia.org/wiki/Your_Name
 ```
-It will gets data to build the preview:
+It will:
+- get the data to build the preview:
 ```
 Data for preview:
     title: Your Name - Wikipedia
@@ -24,7 +25,9 @@ Data for preview:
     site_name: en.wikipedia
     domain: en.wikipedia.org
 ```
-and open your web browser with an exemple of a preview:
+- and open your web browser with an exemple of a preview:
+
+
 ![image](https://user-images.githubusercontent.com/26554495/151885801-10da1770-6b4a-4633-8541-3be7a275c755.png)
 
 ## Install
