@@ -125,6 +125,8 @@ if __name__ == "__main__":
     _URL = "https://www.youtube.com/watch?v=XsZDWNk_RIA"
     _URL = "https://www.tolkiendil.com/_media/logo/logo.png?w=500"
     _URL = "https://www.tolkiendil.com/bienvenue"
+    _URL = "https://en.wikipedia.org/wiki/Your_Name"
+    _URL = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
     # html = requests.get(_URL).text
     # text = text_from_html(html)
     hlp = HyperLinkPreview(url=_URL)

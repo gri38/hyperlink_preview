@@ -69,13 +69,15 @@ class ImageDataList:
         return None
 
     @staticmethod
-    def get_best_image_in_list(image_list:list[ImageSize]) -> ImageSize:
+    def get_best_image_in_list(image_list:list[ImageSize]) -> Optional[ImageSize]:
         """
         Returns:
             image with the max pixels
         """
-        return max(image_list, key=attrgetter("area_pixels"))
-
+        try:
+            return max(image_list, key=attrgetter("area_pixels"))
+        except:  # pylint: disable=bare-except
+            return None
 
 def get_size(req: Response) -> Tuple[int, int]:
     """
