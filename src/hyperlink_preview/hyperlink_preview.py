@@ -105,10 +105,6 @@ class HyperLinkPreview:
 
     def _parse_deeper_domain(self, soup):
         url = self._datas["url"]
-        domain_tag = soup.find('link',  {"rel": "canonical"})
-        if domain_tag:
-            self._datas["domain"] = domain_tag["href"]
-            return
         domain= urlparse(url).netloc
         self._datas["domain"] = str(domain)
 
