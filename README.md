@@ -10,6 +10,7 @@ Create an venv, install the package, and test (above code is for windows):
 ```
 py -3 -m venv venv
 venv\Scripts\activate.bat
+pip install hyperlink_preview
 python -m hyperlink_preview.demo_html https://en.wikipedia.org/wiki/Your_Name
 ```
 It will gets data to build the preview:
