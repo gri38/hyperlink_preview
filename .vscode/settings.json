@@ -1,6 +1,7 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--max-line-length=130"],
     "python.linting.ignorePatterns": [
         "LICENSE",
         "pyproject.toml",
