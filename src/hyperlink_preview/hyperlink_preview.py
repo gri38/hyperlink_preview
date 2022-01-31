@@ -221,8 +221,10 @@ class HyperLinkPreview:
                             width, height = image_size.get_size(response)
                             if width != -1:
                                 candidates.append(image_size.ImageSize(src, width, height))
-                    src_queue.task_done()
                 except: # pylint: disable=bare-except
                     pass
+                finally:
+                    src_queue.task_done()
+
         except queue.Empty:
             pass
