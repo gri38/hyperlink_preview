@@ -3,7 +3,7 @@
 ## Purpose
 
 Hyperlink_preview allows getting data needed to display a small visual preview of a http link.  
-It searches deeper than only `*<meta proerty="og:` tags. It also parses other tags in \<head\> or the html \<body\> if needed to have all data needed for the preview.  
+It searches deeper than only `<meta property="og:` tags. It also parses other tags in \<head\> or the html \<body\> if needed to have all data needed for the preview.  
 It also have an "asynchronous" data getter to avoid having to wait for the full analysis of the images (see below).
 
 ## Demo
