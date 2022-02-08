@@ -18,11 +18,17 @@ logger = logging.getLogger('hyperlinkpreview')
 class HyperLinkPreview:
     """
     Class to parse an url preview data (base on Open Graph protocol, but not only)
+    Warning: constructor raises if url is not accessible: handle it.
     """
 
     properties = ['title', 'type', 'image', 'url', 'description', 'site_name']
 
     def __init__(self, url:str):
+        """
+        Raises:
+            - requests.exceptions.RequestException: if cannot get url
+            - ValueError if no url or None
+        """
         self.data_lock = Lock()
         self.is_valid = False
         self.full_parsed = Event()
@@ -59,6 +65,7 @@ class HyperLinkPreview:
         """
         Returns:
             the html content of the given url
+
         Raises:
             requests.exceptions.RequestException: If cannot get url.
         """
