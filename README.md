@@ -76,7 +76,7 @@ if hlp.is_valid:
     # it allows you to display a spinner as link preview image (or anything else to keep your user waiting).
     
 
-# ... later you can get the remaining image data id needed:
+# ... later you can get the remaining image data if needed:
 if preview_data["image"] is None:
     preview_data = hlp.get_data(wait_for_imgs=True)
 ```
