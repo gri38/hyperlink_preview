@@ -4,7 +4,7 @@ Get the size of a picture without reading the whole picture.
 
 from operator import attrgetter
 import struct
-from typing import Optional, Tuple
+from typing import Optional, Tuple, List
 import logging
 from requests import Response
 
@@ -34,9 +34,9 @@ class ImageDataList:
     (longest side / smallest side > 3)
     """
     def __init__(self):
-        self.images_ok:list[ImageSize] = []
-        self.images_too_small:list[ImageSize] = []
-        self.images_bad_ratio:list[ImageSize] = []
+        self.images_ok:List[ImageSize] = []
+        self.images_too_small:List[ImageSize] = []
+        self.images_bad_ratio:List[ImageSize] = []
 
     def append(self, image_size:ImageSize):
         """
@@ -69,7 +69,7 @@ class ImageDataList:
         return None
 
     @staticmethod
-    def get_best_image_in_list(image_list:list[ImageSize]) -> Optional[ImageSize]:
+    def get_best_image_in_list(image_list:List[ImageSize]) -> Optional[ImageSize]:
         """
         Returns:
             image with the max pixels
