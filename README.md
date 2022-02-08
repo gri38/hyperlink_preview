@@ -52,8 +52,8 @@ if hlp.is_valid:
 
 ## Details
 
-The HyperLinkPreview search for [og tags](https://ogp.me/).  
-If the target link does not provide them (or not all), HyperLinkPreview search deeper to find suitable data.  
+HyperLinkPreview searches for [og tags](https://ogp.me/).  
+If the target link does not provide them (or not all), HyperLinkPreview searches deeper to find suitable data.  
 
 ### About images and performance
 
