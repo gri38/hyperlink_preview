@@ -3,7 +3,7 @@
 ## Purpose
 
 Hyperlink_preview allows getting data needed to display a small visual preview of a http link.  
-It searches deeper than only `*<meta proerty="og:` tags. It also parses other tags in \<head\> or the html \<body\> if needed to have all data needed for the preview.  
+It searches deeper than only `<meta property="og:` tags. It also parses other tags in \<head\> or the html \<body\> if needed to have all data needed for the preview.  
 It also have an "asynchronous" data getter to avoid having to wait for the full analysis of the images (see below).
 
 ## Demo
@@ -52,8 +52,8 @@ if hlp.is_valid:
 
 ## Details
 
-The HyperLinkPreview search for [og tags](https://ogp.me/).  
-If the target link does not provide them (or not all), HyperLinkPreview search deeper to find suitable data.  
+HyperLinkPreview searches for [og tags](https://ogp.me/).  
+If the target link does not provide them (or not all), HyperLinkPreview searches deeper to find suitable data.  
 
 ### About images and performance
 
@@ -76,7 +76,7 @@ if hlp.is_valid:
     # it allows you to display a spinner as link preview image (or anything else to keep your user waiting).
     
 
-# ... later you can get the remaining image data id needed:
+# ... later you can get the remaining image data if needed:
 if preview_data["image"] is None:
     preview_data = hlp.get_data(wait_for_imgs=True)
 ```
