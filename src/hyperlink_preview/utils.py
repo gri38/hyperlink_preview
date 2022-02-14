@@ -2,7 +2,7 @@
 Some utils functions for hyperlink preview
 """
 
-from urllib.parse import urlparse
+from urllib.parse import urljoin
 from bs4.element import Comment
 
 def has_og_property(meta_tag, properties):
@@ -39,13 +39,10 @@ def tag_visible(element) -> bool:
 def get_base_url(full_url):
     """
     Returns:
-        from full url: the scheme and the domain, port, ... until first /.
+        from full url: the scheme and the domain, port, and path.
         Return ends with a /
     """
-    url_parsed = urlparse(full_url)
-    url_base = f"{url_parsed.scheme}://{url_parsed.netloc}"
-    if not url_base[-1] == "/":
-        url_base = url_base + "/"
+    url_base = urljoin(full_url, "remove_me")[0:-len("remove_me")]
     return url_base
 
 
