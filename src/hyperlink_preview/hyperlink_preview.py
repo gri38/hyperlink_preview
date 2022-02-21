@@ -82,7 +82,13 @@ class HyperLinkPreview:
         if not html:
             self.full_parsed.set()
             return
-        if not html[0] == "<" and not html[1] == "<":
+        
+        i = 0
+        html_len = len(html)
+        while i < html_len and (html[i] == " " or html[i] == "\n" or html[i] == "\t"):
+            i += 1
+
+        if not html[i] == "<" and not html[i + 1] == "<":
             self.full_parsed.set()
             return
         with self.data_lock:

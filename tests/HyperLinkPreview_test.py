@@ -45,3 +45,18 @@ class TestParse(unittest.TestCase):
         self.assertEqual(hp.get_data()["url"], "https://andrejgajdos.com/how-to-create-a-link-preview/")
         self.assertEqual(hp.get_data()["description"], "The whole strategy of creating link previews, including implementation using open-source libraries in node.js. The whole solution is released as npm package.")
 
+class TestParseHtml(unittest.TestCase):
+    def test_html_begins_with_nl(self):
+        url = "https://github.com/apprenticeharper/DeDRM_tools/releases"
+        hp = HP.HyperLinkPreview(url=url)
+        self.assertEqual(hp.get_data()["title"], "Releases · apprenticeharper/DeDRM_tools")
+        self.assertEqual(hp.get_data()["type"], "object")
+        self.assertEqual(hp.get_data()["image"], "https://opengraph.githubassets.com/364d50dfedc00216c2e3aaa0b25b4aef9f99ec6aadfd6eb2b9c027e4928d478c/apprenticeharper/DeDRM_tools")
+        self.assertEqual(hp.get_data()["url"], "/apprenticeharper/DeDRM_tools/releases")
+        self.assertEqual(hp.get_data()["description"], "DeDRM tools for ebooks. Contribute to apprenticeharper/DeDRM_tools development by creating an account on GitHub.")
+
+    def test_not_html(self):
+        url = "https://andrejgajdos.com/wp-content/uploads/2019/11/generating-link-preview.png"
+        hp = HP.HyperLinkPreview(url=url)
+        for one_value in hp.get_data().values():
+            self.assertIsNone(one_value)

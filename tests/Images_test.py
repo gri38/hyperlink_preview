@@ -31,4 +31,3 @@ class ImagesUrl(unittest.TestCase):
     def test_image_joplin(self):
         self.assertEqual(ImagesUrl.get_image("https://joplinapp.org/"), 
                          "https://joplinapp.org/images/home-top-img-2x.png")
-    
