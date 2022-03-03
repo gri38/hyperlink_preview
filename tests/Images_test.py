@@ -31,3 +31,11 @@ class ImagesUrl(unittest.TestCase):
     def test_image_joplin(self):
         self.assertEqual(ImagesUrl.get_image("https://joplinapp.org/"), 
                          "https://joplinapp.org/images/home-top-img-2x.png")
+
+    def test_img_as_base64(self):
+        self.assertEqual(ImagesUrl.get_image("https://raymii.org/s/snippets/Sending_commands_or_input_to_a_screen_session.html"), 
+                         None)
+
+    def test_no_img(self):
+        self.assertEqual(ImagesUrl.get_image("https://grenoble.craigslist.org/"), 
+                         None)
