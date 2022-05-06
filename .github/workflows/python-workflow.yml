@@ -28,6 +28,7 @@ jobs:
         python -m pip install flake8 pytest
         python -m pip install coverage
         python -m pip install mypy
+        python -m pip install coverage-badge
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Lint with flake8
@@ -39,6 +40,7 @@ jobs:
       run: |
         coverage run -m unittest discover -s ./tests -p *_test.py
         coverage xml --omit=*demo_html.py
+        coverage-badge
 
     - name: Upload coverage to Codecov
       uses: Atrox/codecov-action@v0.1.3
