@@ -1,4 +1,4 @@
-# hyperlink_preview
+# hyperlink_preview [![HitCount](https://hits.dwyl.com/gri38/hyperlink_preview.svg?style=flat-square)](http://hits.dwyl.com/gri38/hyperlink_preview) [![HitCount](https://hits.dwyl.com/gri38/hyperlink_preview.svg?style=flat-square&show=unique)](http://hits.dwyl.com/gri38/hyperlink_preview)
 
 ## Purpose
 
