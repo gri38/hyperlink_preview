@@ -49,8 +49,8 @@ jobs:
         verbose: true
         name: ${{ matrix.os }}, python ${{ matrix.python-version }}
       
-    - name: Check types with mypy
-      run: mypy src
+    # - name: Check types with mypy
+    #   run: mypy src
 
 
 
