@@ -38,6 +38,7 @@ jobs:
     - name: Test with coverage
       run: |
         coverage run -m unittest discover -s ./tests -p *_test.py
+        coverage xml
 
     - name: Upload coverage to Codecov
       uses: Atrox/codecov-action@v0.1.3
