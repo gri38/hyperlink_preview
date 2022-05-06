@@ -64,12 +64,6 @@ class TestParseHtml(unittest.TestCase):
     def test_html_begins_with_windows_nl(self):
         url = "https://support.microsoft.com/en-us/topic/0fdcaf87-ee5e-8929-e54c-65e04235a634"
         hp = HP.HyperLinkPreview(url=url)
-        print()
-        print(hp.get_data()["title"])
-        print(hp.get_data()["type"])
-        print(hp.get_data()["image"])
-        print(hp.get_data()["url"])
-        print(hp.get_data()["description"])
         self.assertEqual(hp.get_data()["title"], 'Well-known security identifiers in Windows operating systems')
         self.assertEqual(hp.get_data()["type"], None)
         self.assertEqual(hp.get_data()["image"], 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31')

@@ -37,16 +37,15 @@ jobs:
 
     - name: Test with coverage
       run: |
-        coverage run -m unittest
+        coverage run -m unittest discover -s ./tests -p *_test.py
 
     - name: Upload coverage to Codecov
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      if: ${{ env.CODECOV_TOKEN }}
       uses: Atrox/codecov-action@v0.1.3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: coverage.xml
+        flags: unittests
+        verbose: true
         name: ${{ matrix.os }}, python ${{ matrix.python-version }}
       
     - name: Check types with mypy
