@@ -51,7 +51,7 @@ class TestParseHtml(unittest.TestCase):
         hp = HP.HyperLinkPreview(url=url)
         self.assertEqual(hp.get_data()["title"], "Releases · apprenticeharper/DeDRM_tools")
         self.assertEqual(hp.get_data()["type"], "object")
-        self.assertEqual(hp.get_data()["image"], "https://opengraph.githubassets.com/364d50dfedc00216c2e3aaa0b25b4aef9f99ec6aadfd6eb2b9c027e4928d478c/apprenticeharper/DeDRM_tools")
+        self.assertEqual(hp.get_data()["image"], "https://opengraph.githubassets.com/5296378348ee15a4e36ef5fa1457b7f09a88a5f986e9eb5f1392999003595eef/apprenticeharper/DeDRM_tools")
         self.assertEqual(hp.get_data()["url"], "/apprenticeharper/DeDRM_tools/releases")
         self.assertEqual(hp.get_data()["description"], "DeDRM tools for ebooks. Contribute to apprenticeharper/DeDRM_tools development by creating an account on GitHub.")
 
@@ -60,3 +60,20 @@ class TestParseHtml(unittest.TestCase):
         hp = HP.HyperLinkPreview(url=url)
         for one_value in hp.get_data().values():
             self.assertIsNone(one_value)
+
+    def test_html_begins_with_windows_nl(self):
+        url = "https://support.microsoft.com/en-us/topic/0fdcaf87-ee5e-8929-e54c-65e04235a634"
+        hp = HP.HyperLinkPreview(url=url)
+        print()
+        print(hp.get_data()["title"])
+        print(hp.get_data()["type"])
+        print(hp.get_data()["image"])
+        print(hp.get_data()["url"])
+        print(hp.get_data()["description"])
+        self.assertEqual(hp.get_data()["title"], 'Well-known security identifiers in Windows operating systems')
+        self.assertEqual(hp.get_data()["type"], None)
+        self.assertEqual(hp.get_data()["image"], 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31')
+        self.assertEqual(hp.get_data()["url"], 'https://support.microsoft.com/en-us/topic/0fdcaf87-ee5e-8929-e54c-65e04235a634')
+        self.assertEqual(hp.get_data()["site_name"], 'support.microsoft')
+        self.assertEqual(hp.get_data()["domain"], 'support.microsoft.com')
+        self.assertEqual(hp.get_data()["description"], 'A security identifier (SID) is a unique value of variable length that is used to identify a security principal (such as a security group) in Windows operating systems. SIDs that identify generic users or generic groups is particularly well-known. Their values remain constant across all operating systems. This information is useful for troubleshooting issues that involve security. It is also useful for troubleshooting display issues in the Windows access control list (ACL) editor. Windows tracks a security principal by its SID. To display the security principal in the ACL editor, Windows resolves the SID to its associated security principal name. Note: This article describes circumstances under which the ACL editor displays a security principal SID instead of the security principal name. Over time, this set of well-known SIDs has grown. The tables in this article organize these SIDs according to which version of Windows introduced them. Well-known SIDs (all versions of Windows) SIDs add')

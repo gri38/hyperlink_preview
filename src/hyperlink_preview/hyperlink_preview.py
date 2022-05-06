@@ -85,7 +85,8 @@ class HyperLinkPreview:
         
         i = 0
         html_len = len(html)
-        while i < html_len and (html[i] == " " or html[i] == "\n" or html[i] == "\t"):
+        skip_chars = ["\n", "\r", "\t", " "]
+        while i < html_len and html[i] in skip_chars:
             i += 1
 
         if not html[i] == "<" and not html[i + 1] == "<":
@@ -104,7 +105,7 @@ class HyperLinkPreview:
                         pass # don't care if meta tag has no "content" attribute.
 
             self._parse_deeper_url()
-            self._parse_deeper_domain(soup)
+            self._parse_deeper_domain()
             self._parse_deeper_site_name()
             self._parse_deeper_title(soup)
             self._parse_deeper_description(soup)
@@ -116,7 +117,7 @@ class HyperLinkPreview:
             return
         self._datas["url"] = self.link_url
 
-    def _parse_deeper_domain(self, soup):
+    def _parse_deeper_domain(self):
         url = self._datas["url"]
         domain= urlparse(url).netloc
         self._datas["domain"] = str(domain)
@@ -228,16 +229,20 @@ class HyperLinkPreview:
         try:
             while True:
                 src = src_queue.get(block=False)
+                # logging.debug(f"Start processing {src}")
                 try: # important to avoid dead lock of queue join.
                     with requests.get(src, stream=True) as response:
                         if response.status_code == 200:
                             width, height = image_size.get_size(response)
+                            # logging.debug(f"Processing {src}: width: [{width}]")
                             if width != -1:
                                 candidates.append(image_size.ImageSize(src, width, height))
                 except: # pylint: disable=bare-except
+                    # logging.debug(f"End processing {src}: exception")
                     pass
                 finally:
                     src_queue.task_done()
 
         except queue.Empty:
+            # logging.debug(f"End processing: Queue empty")
             pass
