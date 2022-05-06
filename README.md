@@ -1,4 +1,4 @@
-# hyperlink_preview [![HitCount](https://hits.dwyl.com/gri38/hyperlink_preview.svg?style=flat-square&show=unique)](http://hits.dwyl.com/gri38/hyperlink_preview) ![example workflow](https://github.com/gri38/hyperlink_preview/actions/workflows/python-workflow.yml/badge.svg)
+# hyperlink_preview [![HitCount](https://hits.dwyl.com/gri38/hyperlink_preview.svg?style=flat-square&show=unique)](http://hits.dwyl.com/gri38/hyperlink_preview) ![badge workflow](https://github.com/gri38/hyperlink_preview/actions/workflows/python-workflow.yml/badge.svg) ![badge covergae](https://github.com/gri38/hyperlink_preview/actions/workflows/python-workflow.yml/coverage.svg) 
 
 ## Purpose
 
