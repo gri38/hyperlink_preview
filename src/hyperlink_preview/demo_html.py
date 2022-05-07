@@ -156,7 +156,7 @@ if __name__ == "__main__":
             print(temp_file)
             with open(temp_file, "w", encoding="utf-8") as html:
                 html.write(template_html)
-            webbrowser.open(temp_file)
+            webbrowser.open(str(temp_file))
             time.sleep(10)
         finally:
             try:
