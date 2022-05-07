@@ -32,6 +32,8 @@ jobs:
       - name: Docker Metadata action
         id: meta
         uses: docker/metadata-action@v4.0.1
+        with:
+          images: dont/care
 
       - name: test
         run: |
