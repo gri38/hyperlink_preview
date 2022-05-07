@@ -51,7 +51,8 @@ class TestParseHtml(unittest.TestCase):
         hp = HP.HyperLinkPreview(url=url)
         self.assertEqual(hp.get_data()["title"], "Releases · apprenticeharper/DeDRM_tools")
         self.assertEqual(hp.get_data()["type"], "object")
-        self.assertEqual(hp.get_data()["image"], "https://opengraph.githubassets.com/5296378348ee15a4e36ef5fa1457b7f09a88a5f986e9eb5f1392999003595eef/apprenticeharper/DeDRM_tools")
+        self.assertTrue("https://opengraph.githubassets.com/" in hp.get_data()["image"])
+        self.assertTrue("/apprenticeharper/DeDRM_tools" in hp.get_data()["image"])
         self.assertEqual(hp.get_data()["url"], "/apprenticeharper/DeDRM_tools/releases")
         self.assertEqual(hp.get_data()["description"], "DeDRM tools for ebooks. Contribute to apprenticeharper/DeDRM_tools development by creating an account on GitHub.")
 
