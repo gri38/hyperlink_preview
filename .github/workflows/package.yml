@@ -29,13 +29,12 @@ jobs:
       #     python -m pip install twine
       #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Docker Metadata action
-        id: meta
-        uses: docker/metadata-action@v4.0.1
+      - name: Get git tag
+        id: tag
+        uses: little-core-labs/get-git-tag@v3.0.2
         with:
-          images: dont/care
-          tags: type=semver,pattern={{version}}
+          tagRegex: v(.*) 
 
       - name: test
         run: |
-          echo "${{ steps.meta.outputs.labels["org.opencontainers.image.version"] }}"
+          echo "${{ steps.tag.outputs.tag }}"
