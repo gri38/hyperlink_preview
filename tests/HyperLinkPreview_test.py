@@ -63,12 +63,13 @@ class TestParseHtml(unittest.TestCase):
             self.assertIsNone(one_value)
 
     def test_html_begins_with_windows_nl(self):
-        url = "https://support.microsoft.com/en-us/topic/0fdcaf87-ee5e-8929-e54c-65e04235a634"
+        url = "https://social.technet.microsoft.com/wiki/contents/articles/51722.windows-problem-steps-recorder-psr-quick-and-easy-documenting-of-your-steps-and-procedures.aspx"
         hp = HP.HyperLinkPreview(url=url)
-        self.assertEqual(hp.get_data()["title"], 'Well-known security identifiers in Windows operating systems')
+        print(hp.get_data())
+        self.assertEqual(hp.get_data()["title"], "\r\n\tWindows Problem Steps Recorder (PSR): quick and easy documenting of your steps and procedures - TechNet Articles - United States (English) - TechNet Wiki\r\n")
         self.assertEqual(hp.get_data()["type"], None)
-        self.assertEqual(hp.get_data()["image"], 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31')
-        self.assertEqual(hp.get_data()["url"], 'https://support.microsoft.com/en-us/topic/0fdcaf87-ee5e-8929-e54c-65e04235a634')
-        self.assertEqual(hp.get_data()["site_name"], 'support.microsoft')
-        self.assertEqual(hp.get_data()["domain"], 'support.microsoft.com')
-        self.assertEqual(hp.get_data()["description"], 'A security identifier (SID) is a unique value of variable length that is used to identify a security principal (such as a security group) in Windows operating systems. SIDs that identify generic users or generic groups is particularly well-known. Their values remain constant across all operating systems. This information is useful for troubleshooting issues that involve security. It is also useful for troubleshooting display issues in the Windows access control list (ACL) editor. Windows tracks a security principal by its SID. To display the security principal in the ACL editor, Windows resolves the SID to its associated security principal name. Note: This article describes circumstances under which the ACL editor displays a security principal SID instead of the security principal name. Over time, this set of well-known SIDs has grown. The tables in this article organize these SIDs according to which version of Windows introduced them. Well-known SIDs (all versions of Windows) SIDs add')
+        self.assertEqual(hp.get_data()["image"], 'https://social.technet.microsoft.com/wiki/resized-image.ashx/__size/550x0/__key/communityserver-wikis-components-files/00-00-00-00-05/4428.psr.JPG')
+        self.assertEqual(hp.get_data()["url"], 'https://social.technet.microsoft.com/wiki/contents/articles/51722.windows-problem-steps-recorder-psr-quick-and-easy-documenting-of-your-steps-and-procedures.aspx')
+        self.assertEqual(hp.get_data()["site_name"], 'social.technet.microsoft')
+        self.assertEqual(hp.get_data()["domain"], 'social.technet.microsoft.com')
+        self.assertEqual(hp.get_data()["description"], "Problem steps recorder is a tool that is available in Windows since Windows 7 (client) / Windows 2008 R2. In this blog post, you'll be able to find more details on PSR (or Problem Steps Recorder). In short: So it's an ideal tool to document steps and procedures on the fly, while you're executing. Although it's a very handy tool and quick and easy to use, one of the disadvantages is that it does not capture keystrokes. Another disadvantage is that PSR is taken full-screen snapshots, but you can solve this to edit the saved file, extract or edit the images and resave the document. Hit the Windows button and start typing psr… (or run psr.exe) The configuration settings are 'hiding' in the Help/Settings button, on the right-hand side of the menu... There are 2 settings you need to look at: You must make sure to set the number of screenshots at a sufficiently high level. In early versions of PSR you can set it to 99, but newer versions (W10, W2012) you can go up to 999. A note of advice: se")
